@@ -1,14 +1,14 @@
 #!/bin/bash
 
-POWERON_STATE="ON" # Change this to "OFF" if you want that your Sonoff will be OFF when powered 
+POWERON_STATE="OFF" # Change this to "OFF" if you want that your Sonoff will be OFF when powered 
 
-SONOFF_PORT="/dev/cu.wchusbserial14310"
+SONOFF_PORT="/dev/cu.usbserial-1420"
 
 esptool.py \
             -p $SONOFF_PORT \
             --baud 115200 \
             write_flash \
-            -fs 8m \
+            -fs 1MB \
             -fm dout \
             -ff 40m \
             0x0 ./firmware/rboot.bin \
